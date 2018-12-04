@@ -494,8 +494,8 @@ class CurrencyFormat extends React.Component {
     // if value is not defined return empty string
     if (value === undefined) return '';
 
-    // if value is smaller than required precision, return 0
-    if (typeof decimalScale === 'number' && typeof value === 'number' && Math.abs(value) < 5 * Math.pow(10, -(decimalScale + 1))) return 0;
+    // if value is smaller than required precision, set it to 0
+    if (typeof decimalScale === 'number' && typeof value === 'number' && Math.abs(value) < 5 * Math.pow(10, -(decimalScale + 1))) value = 0;
 
     if (typeof value === 'number') {
       value = value.toString();
